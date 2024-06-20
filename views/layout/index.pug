@@ -1,0 +1,14 @@
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Tienda Virtual | #{pagina}
+        link(rel="stylesheet", href="/css/app.css")
+    body(class="min-h-screen bg-green-200") 
+        block header 
+        
+        main(class="container mx-auto my-auto px-2") 
+            block contenido
+
+        block scripts
