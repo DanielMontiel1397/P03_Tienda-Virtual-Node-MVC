@@ -19,9 +19,9 @@ header
                     .hidden(class='sm:ml-6 sm:block')
                         .flex.space-x-4
                             a.rounded-md.bg-gray-800.px-3.py-2.text-sm.font-medium.text-white(href='#' aria-current='page') Tienda Virtual
-                            a.rounded-md.px-3.py-2.text-sm.font-medium.text-gray-300(href='#' class='hover:bg-gray-700 hover:text-white') Productos
-                            a.rounded-md.px-3.py-2.text-sm.font-medium.text-gray-300(href='#' class='hover:bg-gray-700 hover:text-white') Vendedores
-                            a.rounded-md.px-3.py-2.text-sm.font-medium.text-gray-300(href='/tienda/mis-productos' class='hover:bg-gray-700 hover:text-white') Tus Productos
+                            a.rounded-md.px-3.py-2.text-sm.font-medium.text-gray-300(href='/productos' class='hover:bg-gray-700 hover:text-white') Productos
+                            a.rounded-md.px-3.py-2.text-sm.font-medium.text-gray-300(href='/tienda/vendedores' class='hover:bg-gray-700 hover:text-white') Vendedores
+                            a.rounded-md.px-3.py-2.text-sm.font-medium.text-gray-300(href='/tienda/mis-productos' class='hover:bg-gray-700 hover:text-white') Mis Productos
                 
                 .absolute.inset-y-0.right-0.flex.items-center.pr-2(class='sm:static sm:inset-auto sm:ml-6 sm:pr-0')
                     .relative.ml-3
@@ -35,7 +35,9 @@ header
                     
                             a#user-menu-item-0.block.px-4.py-2.text-sm.text-gray-700(href='#' role='menuitem' tabindex='-1') Tú Perfil
                             a#user-menu-item-1.block.px-4.py-2.text-sm.text-gray-700(href='/usuario/editar' role='menuitem' tabindex='-1') Editar Perfil
-                            a#user-menu-item-2.block.px-4.py-2.text-sm.text-gray-700(href='#' role='menuitem' tabindex='-1') Cerrar Sesión
+                            form(action="/usuario/cerrarSesion" method="POST" ) 
+                                input(type="hidden" name="_csrf" value=csrfToken)
+                                input(type="submit" id="user-menu-item-2" class="block px-4 py-2 text-sm text-gray-700 cursor-pointer" value="Cerrar Sesión")
   
         #mobile-menu(class='hidden')
             .space-y-1.px-2.pb-3.pt-2

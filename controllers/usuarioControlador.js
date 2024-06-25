@@ -70,6 +70,10 @@ const iniciarSesion = async (req,res) => {
     }).redirect('/tienda/inicio');
 }
 
+const cerrarSesion = (req,res) => {
+    return res.clearCookie('_token').status(200).redirect('/usuario/login')
+}
+
 //Controlador para vista Registro
 const formularoRegistro = (req,res) => {
     res.render('./loginRegister/registro.pug',{
@@ -151,6 +155,7 @@ const editarUsuario = async (req,res) => {
 export {
     formularioLogin,
     iniciarSesion,
+    cerrarSesion,
     formularoRegistro,
     enviarRegistro,
     editarUsuario

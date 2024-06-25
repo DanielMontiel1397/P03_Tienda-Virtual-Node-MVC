@@ -1,5 +1,5 @@
 import express from 'express';
-import { formularioLogin, iniciarSesion, formularoRegistro, enviarRegistro, editarUsuario } from '../controllers/usuarioControlador.js';
+import { formularioLogin, iniciarSesion, formularoRegistro, enviarRegistro, editarUsuario, cerrarSesion } from '../controllers/usuarioControlador.js';
 
 const rutas = express.Router();
 
@@ -9,6 +9,7 @@ const rutas = express.Router();
 rutas.get('/login',formularioLogin);
 rutas.post('/login',iniciarSesion);
 
+rutas.post('/cerrarSesion',cerrarSesion)
 //Vista Register
 rutas.get('/registro',formularoRegistro);
 rutas.post('/registro',enviarRegistro);

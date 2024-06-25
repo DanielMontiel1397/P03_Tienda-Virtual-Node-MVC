@@ -11,5 +11,5 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({storage});
-console.log('Se subio la imagen');
+
 export default upload;

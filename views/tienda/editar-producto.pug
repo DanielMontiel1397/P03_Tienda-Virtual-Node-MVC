@@ -13,7 +13,7 @@ block contenido
                         p(class="text-white uppercase text-center font-bold text-md bg-red-500 rounded-md p-2")=error.msg
             
             div(class="bg-white shadow rounded mx-auto max-w-3xl p-5")
-                form(action=`/tienda/crear?_csrf=${csrfToken}` method="POST" class="flex flex-col gap-4" enctype="multipart/form-data")
+                form(method="POST" class="flex flex-col gap-4")
                     
                     input(type="hidden" name="_csrf" value=csrfToken)
 
@@ -41,7 +41,7 @@ block contenido
                             select(class="p-2 rounded-xl border w-full" name="categoriaProducto")
                                 option(value="") - Seleccione -
                                 each categoria in categorias 
-                                    option(value=categoria.id selected= producto.categoriaProducto ? producto.categoriaProducto == categoria.id ? true : false : null)= categoria.categoriaProducto 
+                                    option(value=categoria.id selected= producto.categoriaId ? producto.categoriaId == categoria.id ? true : false : null)= categoria.categoriaProducto 
 
                         div(class="md:w-1/2")
                             label.block.text-sm.uppercase.text-gray-500.font-bold(for="cantidadProducto") Cantidad
@@ -51,8 +51,4 @@ block contenido
                         label.block.text-sm.uppercase.text-gray-500.font-bold(for="descripcionProducto") Descripción
                         textarea(id="descripcionProducto" class="p-2 rounded-xl border w-full" name="descripcionProducto" placeholder="Descripción del Producto...")= producto.descripcionProducto ? producto.descripcionProducto : ""      
                     
-                    div(class="space-y-1")
-                        label(class=" block uppercase font-bold text-gray-500" for='file_input') Cargar Imagen
-                        input(id="file_input" class=" block w-full uppercase text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-500 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" type='file' name="imagen")
-                    
-                    button(type="submit" class="bg-[#002D74] rounded-xl text-white py-2") Agregar Producto
+                    button(type="submit" class="bg-[#002D74] rounded-xl text-white py-2") Editar Producto

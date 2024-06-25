@@ -27,6 +27,10 @@ const Producto = db.define('productos',{
     imagenProducto: {
         type: DataTypes.STRING,
         allowNull:false
+    },
+    cantidadProducto: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 })
 

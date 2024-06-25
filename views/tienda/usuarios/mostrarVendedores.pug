@@ -1,0 +1,22 @@
+extends ../../layout/administrador
+
+block contenido 
+    div.py-2
+        h2.text-center.text-2xl.font-extrabold= pagina 
+
+    //pre= JSON.stringify(vendedores, undefined, 2)
+    //- SECCION MOSTRAR VENDEDORES
+    section(class="max-w-4xl mx-auto") 
+        ul(class="divide-y divide-gray-300 bg-white" role='list')
+            each vendedor in vendedores
+                li(class="rounded-sm flex justify-between items-center gap-x-6 p-3")
+                    div(class="flex min-w-0 gap-x-4 items-center")
+                        img(class="h-20 w-20 rounded-full bg-gray-50 flex-none h-" src="/img/usuario.jpg", alt="")
+                        div(class="min-w-0 flex-auto")
+                            p(class=" text-lg font-bold leading-6 text-gray-500")= vendedor.nombre
+                            p(class=" mt-1 truncate text-sm leading-5 text-gray-500").mt-1.truncate.text-sm.leading-5.text-gray-500= vendedor.email
+                    div(class='sm:flex sm:flex-col sm:items-end space-y-4 hidden shrink-0')
+                        p(class="text-md leading-5 text-gray-500 font-bold") Usuario: 
+                            span(class="font-semibold")= vendedor.usuario
+                        
+
